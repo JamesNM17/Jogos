@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#191714">
+  <meta name="description" content="Acompanhe em tempo real os placares dos jogos dos Jogos da Escola Estadual Brigadeiro Gavião Peixoto.">
+  <title>Placar ao vivo — Jogos Gavião Peixoto</title>
+  <link rel="icon" type="image/png" href="assets/brasao-escola.png">
+  <script>(() => { try { const saved = localStorage.getItem('jogos-theme'); document.documentElement.dataset.theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (_) { document.documentElement.dataset.theme = 'light'; } })();</script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/scoreboard.css">
+  <script src="js/config.js"></script>
+  <script type="module" src="js/placar.js"></script>
+</head>
+<body class="subpage scoreboard-page">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Jogos — início"><span class="brand__crest"><img src="assets/brasao-escola.png" alt="Brasão da escola"></span><span class="brand__copy"><strong>JOGOS</strong><small>BRIGADEIRO GAVIÃO PEIXOTO</small></span></a>
+    <nav id="main-navigation" class="main-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a><a href="regras.html">Regras</a><a href="inscricao.html">Inscrever equipe</a><a href="placar.html" aria-current="page">Placar ao vivo</a><a class="nav-admin" href="admin.html"><span class="nav-admin__icon">↗</span> Organização</a>
+    </nav>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ativar modo escuro" title="Ativar modo escuro" aria-pressed="false"><svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.7 8.7 0 1 0 20.5 14.2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42 1.42M19.07 4.93l-1.42 1.42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="theme-toggle__label">Modo escuro</span></button>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span></button>
+  </header>
+  <main class="scoreboard-main section-wrap">
+    <section class="scoreboard-hero"><div class="scoreboard-hero__copy"><span class="section-kicker"><span class="live-pulse"></span> JOGOS 2026 · ACOMPANHAMENTO AO VIVO</span><h1>O placar <em>do jogo.</em></h1><p>Veja os jogos em andamento, os pontos de cada equipe e a turma que está representando.</p><div class="scoreboard-summary"><span class="live-pulse"></span><strong id="scoreboard-status">Conectando ao placar…</strong><span id="scoreboard-updated">Atualização automática</span></div></div><div class="scoreboard-hero__emblem" aria-hidden="true"><img src="assets/brasao-escola.png" alt=""><span>JOGA<br>JUNTO</span></div></section>
+    <div id="scoreboard-message" class="form-message" role="status" aria-live="polite" hidden></div>
+    <section class="scoreboard-section" aria-labelledby="live-heading"><div class="scoreboard-section-heading"><div><span class="section-kicker">AGORA</span><h2 id="live-heading">Jogos em andamento</h2></div><button id="scoreboard-fullscreen" type="button" class="button button--dark">⛶ Modo telão</button></div><div id="live-matches" class="live-matches"><article class="scoreboard-empty"><span class="scoreboard-empty__icon">◷</span><h3>Carregando os placares</h3><p>Os jogos iniciados pela organização vão aparecer aqui.</p></article></div></section>
+    <section class="scoreboard-section scoreboard-upcoming-section" aria-labelledby="upcoming-heading"><div class="scoreboard-section-heading"><div><span class="section-kicker">PRÓXIMOS CONFRONTOS</span><h2 id="upcoming-heading">Jogos aguardando início</h2></div></div><div id="upcoming-matches" class="upcoming-matches"><p class="scoreboard-muted">Carregando a lista de jogos…</p></div></section>
+    <section class="scoreboard-section scoreboard-results-section" aria-labelledby="results-heading"><div class="scoreboard-section-heading"><div><span class="section-kicker">RESULTADOS OFICIAIS</span><h2 id="results-heading">Últimos resultados</h2></div></div><div id="recent-results" class="recent-results"><p class="scoreboard-muted">Os resultados finalizados aparecem aqui.</p></div></section>
+  </main>
+  <footer class="site-footer"><a class="brand brand--footer" href="index.html"><span class="brand__crest"><img src="assets/brasao-escola.png" alt=""></span><span class="brand__copy"><strong>JOGOS</strong><small>BRIGADEIRO GAVIÃO PEIXOTO</small></span></a><p>Garra, respeito e união. <span>✦</span> Escola Estadual Brigadeiro Gavião Peixoto</p><a class="footer-admin" href="admin.html">Acesso da organização ↗</a></footer>
+  <script>(() => { const toggle = document.getElementById('menu-toggle'); const nav = document.getElementById('main-navigation'); if (!toggle || !nav) return; const setOpen = (open) => { nav.classList.toggle('is-open', open); document.body.classList.toggle('menu-open', open); toggle.setAttribute('aria-expanded', String(open)); toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu'); }; toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-open'))); nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false))); document.addEventListener('keydown', event => { if (event.key === 'Escape') setOpen(false); }); })();</script>
+  <script src="js/theme.js" defer></script>
+</body>
+</html>

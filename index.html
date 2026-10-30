@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171612">
+  <meta name="description" content="Jogos — Escola Estadual Brigadeiro Gavião Peixoto. Apresentação dos Jogos, regras, inscrições e placares ao vivo.">
+  <title>Jogos — Brigadeiro Gavião Peixoto</title>
+  <link rel="icon" type="image/png" href="assets/brasao-escola.png">
+  <link rel="preload" as="image" href="assets/jogos-banner.webp" fetchpriority="high">
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem('jogos-theme');
+        const initial = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = initial;
+      } catch (_) { document.documentElement.dataset.theme = 'light'; }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-page sports-home">
+  <header class="site-header sports-header">
+    <a class="brand sports-brand" href="index.html" aria-label="Jogos da Escola Brigadeiro Gavião Peixoto — início">
+      <span class="brand__crest"><img src="assets/brasao-escola.png" alt="Brasão da Escola Estadual Brigadeiro Gavião Peixoto"></span>
+      <span class="brand__copy"><strong>JOGOS</strong><small>BRIGADEIRO GAVIÃO PEIXOTO</small></span>
+    </a>
+    <nav id="main-navigation" class="main-nav sports-nav" aria-label="Navegação principal">
+      <a href="regras.html">Leia as regras</a>
+      <a href="inscricao.html">Inscrever equipe</a>
+      <a href="placar.html">Placar ao vivo</a>
+      <a class="nav-admin" href="admin.html"><span class="nav-admin__icon" aria-hidden="true">↗</span> Área do organizador</a>
+    </nav>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ativar modo escuro" title="Ativar modo escuro" aria-pressed="false">
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.7 8.7 0 1 0 20.5 14.2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span class="theme-toggle__label">Modo escuro</span>
+    </button>
+    <button class="menu-toggle sports-menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-navigation">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main class="sports-main">
+    <section class="sports-cover" aria-labelledby="cover-title">
+      <img class="sports-cover__photo" src="assets/jogos-banner.webp" alt="" fetchpriority="high" decoding="async">
+      <div class="sports-cover__veil" aria-hidden="true"></div>
+      <div class="sports-cover__texture" aria-hidden="true"></div>
+      <div class="sports-cover__content">
+        <div class="sports-cover__eyebrow"><span class="sports-cover__pulse" aria-hidden="true"></span> ESCOLA ESTADUAL BRIGADEIRO GAVIÃO PEIXOTO</div>
+        <p class="sports-cover__edition">JOGOS <span>2026</span></p>
+        <h1 id="cover-title">Nossa escola.<br><span>Nosso jogo.</span></h1>
+        <p class="sports-cover__lead">Respeito na disputa. Orgulho em representar. Energia dentro e fora da quadra.</p>
+        <p class="home-rules-reminder"><span aria-hidden="true">✦</span> Antes de se inscrever, leia as regras dos Jogos.</p>
+        <nav class="sports-cover__actions" aria-label="Acessos dos Jogos">
+          <a class="sports-action sports-action--primary" href="inscricao.html">Inscreva sua equipe <span aria-hidden="true">↗</span></a>
+          <a class="sports-action sports-action--secondary" href="regras.html">Ler as regras <span aria-hidden="true">→</span></a>
+          <a class="sports-cover__rules" href="placar.html">Acompanhar placar ao vivo ↗</a>
+        </nav>
+      </div>
+      <div class="sports-cover__side-label" aria-hidden="true">GARRA · RESPEITO · UNIÃO</div>
+      <div class="sports-cover__corner" aria-hidden="true"><span>✦</span><i>26</i></div>
+    </section>
+  </main>
+
+  <footer class="sports-footer">
+    <a class="sports-footer__school" href="index.html"><img src="assets/brasao-escola.png" alt=""><span>Escola Estadual Brigadeiro Gavião Peixoto</span></a>
+    <span class="sports-footer__motto">A torcida é de todos. <b>✦</b> O respeito vem primeiro.</span>
+    <a class="sports-footer__admin" href="admin.html">Organização ↗</a>
+  </footer>
+
+  <script>
+    (() => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mainNav = document.getElementById('main-navigation');
+      if (!menuToggle || !mainNav) return;
+      const setMenuOpen = (open) => {
+        mainNav.classList.toggle('is-open', open);
+        document.body.classList.toggle('menu-open', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      };
+      menuToggle.addEventListener('click', () => setMenuOpen(!mainNav.classList.contains('is-open')));
+      mainNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setMenuOpen(false); });
+      document.addEventListener('click', (event) => {
+        if (window.matchMedia('(max-width: 860px)').matches && mainNav.classList.contains('is-open') &&
+            !mainNav.contains(event.target) && !menuToggle.contains(event.target)) setMenuOpen(false);
+      });
+      window.addEventListener('resize', () => {
+        if (!window.matchMedia('(max-width: 860px)').matches) setMenuOpen(false);
+      }, { passive: true });
+    })();
+  </script>
+  <script src="js/theme.js" defer></script>
+</body>
+</html>
