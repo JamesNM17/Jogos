@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Troféu dos Jogos — composição vertical</title>
+  <desc id="desc">Troféu dourado em um ginásio esportivo estilizado, preparado para telas de celular.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0a1117"/><stop offset=".58" stop-color="#18201f"/><stop offset="1" stop-color="#101411"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#d9a83b" stop-opacity=".32"/><stop offset="1" stop-color="#d9a83b" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2b4"/><stop offset=".27" stop-color="#e8ba4b"/><stop offset=".58" stop-color="#a97624"/><stop offset=".82" stop-color="#f2d579"/><stop offset="1" stop-color="#8c601d"/></linearGradient>
+    <linearGradient id="base" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f5d16b"/><stop offset="1" stop-color="#76501a"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="32"/></filter>
+    <pattern id="dots" width="44" height="44" patternUnits="userSpaceOnUse"><circle cx="5" cy="8" r="1.2" fill="#fff" opacity=".12"/></pattern>
+  </defs>
+  <rect width="800" height="1200" fill="url(#bg)"/>
+  <ellipse cx="400" cy="405" rx="390" ry="380" fill="url(#halo)"/>
+  <g fill="#f6d77c" opacity=".7" filter="url(#soft)"><circle cx="120" cy="150" r="30"/><circle cx="665" cy="175" r="34"/><circle cx="400" cy="95" r="26"/></g>
+  <g stroke="#f5d16b" stroke-width="7" stroke-linecap="round" opacity=".55"><path d="M112 130 86 94M173 95l-8-47M236 80l5-48M565 80l-5-48M628 95l8-47M690 130l26-36"/></g>
+  <g fill="none" stroke="#b99143" opacity=".25"><path d="M-80 650Q400 270 880 650" stroke-width="3"/><path d="M-80 730Q400 350 880 730" stroke-width="2"/><path d="M-80 810Q400 430 880 810" stroke-width="2"/><path d="M-80 890Q400 510 880 890" stroke-width="2"/></g>
+  <g transform="translate(170 180)">
+    <ellipse cx="230" cy="555" rx="210" ry="35" fill="#000" opacity=".3"/>
+    <!-- Alças compactas -->
+    <path d="M118 160C20 95 5 190 40 280c25 65 75 77 128 50" fill="none" stroke="url(#gold)" stroke-width="25" stroke-linecap="round"/>
+    <path d="M342 160c98-65 113 30 78 120-25 65-75 77-128 50" fill="none" stroke="url(#gold)" stroke-width="25" stroke-linecap="round"/>
+    <!-- Taça -->
+    <path d="M105 90Q230 45 355 90L330 310Q320 400 230 425Q140 400 130 310Z" fill="url(#gold)" stroke="#ffedaa" stroke-width="6"/>
+    <path d="M140 112Q230 82 320 112L301 300Q292 370 230 390Q168 370 159 300Z" fill="none" stroke="#fff0b1" stroke-opacity=".5" stroke-width="6"/>
+    <path d="M180 200l50-65 50 65-50 35z" fill="#fff0b5" opacity=".75"/>
+    <path d="M207 425h46l19 93h-84z" fill="url(#base)"/>
+    <path d="M165 518h130v38H165z" fill="url(#gold)"/>
+    <path d="M128 556h204v48H128z" fill="#171815" stroke="#d8ad4c" stroke-width="5"/>
+    <path d="M105 604h250v28H105z" fill="url(#base)"/>
+  </g>
+  <g fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round" opacity=".52">
+    <path d="M115 765q-35-100 15-180M685 765q35-100-15-180"/>
+    <path d="M120 710q-44-5-58-46M126 660q-39-8-47-42M680 710q44-5 58-46M674 660q39-8 47-42"/>
+  </g>
+  <path d="M0 860Q400 760 800 860V1200H0Z" fill="#0d1210" opacity=".45"/>
+  <path d="M0 980Q400 820 800 980M0 1040Q400 880 800 1040M0 1100Q400 940 800 1100" fill="none" stroke="#d8b455" stroke-opacity=".13" stroke-width="2"/>
+  <rect width="800" height="1200" fill="url(#dots)"/>
+</svg>

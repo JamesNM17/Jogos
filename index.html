@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171612">
+  <meta name="description" content="Jogos da Escola Estadual Brigadeiro Gavião Peixoto.">
+  <title>Jogos — Brigadeiro Gavião Peixoto</title>
+  <link rel="icon" type="image/png" href="assets/brasao-escola.png">
+  <script>(() => { try { const saved = localStorage.getItem('jogos-theme'); document.documentElement.dataset.theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (_) { document.documentElement.dataset.theme = 'light'; } })();</script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/refine.css">
+  <link rel="stylesheet" href="css/final-overrides.css">
+  <link rel="stylesheet" href="css/layout-standardization.css">
+</head>
+<body class="home-page sports-home home-minimal">
+  <header class="home-minimal-header">
+    <a class="brand" href="index.html" aria-label="Jogos — início">
+      <span class="brand__crest"><img src="assets/brasao-escola.png" alt="Brasão da escola"></span>
+      <span class="brand__copy"><strong>JOGOS</strong><small>BRIGADEIRO GAVIÃO PEIXOTO</small></span>
+    </a>
+    <div class="home-minimal-header__actions">
+      <a class="home-organizer-link" href="admin.html">Organização</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ativar modo escuro" title="Ativar modo escuro" aria-pressed="false">
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.7 8.7 0 1 0 20.5 14.2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42 1.42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span class="theme-toggle__label">Modo escuro</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="home-minimal-main">
+    <section class="sports-cover home-minimal-cover" aria-labelledby="cover-title">
+      <picture class="sports-cover__picture">
+        <source media="(max-width: 720px)" srcset="assets/jogos-banner-mobile.svg">
+        <img class="sports-cover__photo" src="assets/jogos-banner.svg" alt="" fetchpriority="high" decoding="async">
+      </picture>
+      <div class="sports-cover__veil" aria-hidden="true"></div>
+      <div class="sports-cover__texture" aria-hidden="true"></div>
+      <div class="sports-cover__content">
+        <div class="sports-cover__eyebrow"><span class="sports-cover__pulse" aria-hidden="true"></span> ESCOLA ESTADUAL BRIGADEIRO GAVIÃO PEIXOTO</div>
+        <p class="sports-cover__edition">JOGOS <span></span></p>
+        <h1 id="cover-title">Nossa escola.<br><span>Nosso jogo.</span></h1>
+        <p class="sports-cover__lead">Garra, respeito e união. Escolha por onde começar.</p>
+        <nav class="home-primary-actions" aria-label="Acessos principais">
+          <a class="home-primary-action home-primary-action--primary" href="inscricao.html"><span>01</span><strong>Se inscrever</strong><i aria-hidden="true">↗</i></a>
+          <a class="home-primary-action" href="regras.html"><span>02</span><strong>Regras</strong><i aria-hidden="true">↗</i></a>
+          <a class="home-primary-action" href="placar.html"><span>03</span><strong>Placar</strong><i aria-hidden="true">↗</i></a>
+        </nav>
+      </div>
+      <div class="sports-cover__side-label" aria-hidden="true">GARRA · RESPEITO · UNIÃO</div>
+      <div class="sports-cover__corner" aria-hidden="true"><span>✦</span><i>26</i></div>
+    </section>
+  </main>
+
+  <footer class="home-minimal-footer">
+    <span><img src="assets/brasao-escola.png" alt=""> Escola Estadual Brigadeiro Gavião Peixoto</span>
+    <span>Mais do que competir, é representar.</span>
+  </footer>
+  <script src="js/theme.js" defer></script>
+</body>
+</html>
